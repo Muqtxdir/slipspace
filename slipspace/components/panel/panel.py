@@ -12,8 +12,10 @@ gi.require_version('Adw', '1')
 from gi.repository import Adw, GObject, Gtk
 
 from slipspace.components.datetime import DatetimeLabel
+from slipspace.components.network import NetworkIcon
 
 GObject.type_ensure(DatetimeLabel)
+GObject.type_ensure(NetworkIcon)
 
 
 @Gtk.Template(resource_path='/com/muqtxdir/slipspace/components/panel/panel.ui')
