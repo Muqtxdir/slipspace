@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="Panel" parent="AdwBin">
+    <property name="child">
+      <object class="AdwHeaderBar">
+        <property name="show-title">False</property>
+        <property name="show-start-title-buttons">False</property>
+        <property name="show-end-title-buttons">False</property>
+        <child type="end">
+          <object class="DatetimeLabel" />
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

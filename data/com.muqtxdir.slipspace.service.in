@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.muqtxdir.slipspace
+Exec=@bindir@/slipspace --gapplication-service

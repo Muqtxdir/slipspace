@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="slipspace">
+	<enum id="com.muqtxdir.slipspace.datetime.ClockFormat">
+		<value nick="24h" value="0"/>
+		<value nick="12h" value="1"/>
+	</enum>
+	<schema id="com.muqtxdir.slipspace" path="/com/muqtxdir/slipspace/">
+	</schema>
+	<schema id="com.muqtxdir.slipspace.datetime" path="/com/muqtxdir/slipspace/datetime/">
+		<key name="time-format" enum="com.muqtxdir.slipspace.datetime.ClockFormat">
+			<default>'24h'</default>
+			<summary>Time format</summary>
+			<description>
+				Whether the clock shows the time in 24-hour or 12-hour
+				format.
+			</description>
+		</key>
+	</schema>
+</schemalist>

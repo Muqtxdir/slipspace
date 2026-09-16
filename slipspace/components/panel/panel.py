@@ -1,0 +1,22 @@
+# panel.py
+#
+# Copyright 2026 Muqtadir
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+import gi
+
+gi.require_version('Gtk', '4.0')
+gi.require_version('Adw', '1')
+
+from gi.repository import Adw, GObject, Gtk
+
+from slipspace.components.datetime import DatetimeLabel
+
+GObject.type_ensure(DatetimeLabel)
+
+
+@Gtk.Template(resource_path='/com/muqtxdir/slipspace/components/panel/panel.ui')
+class Panel(Adw.Bin):
+
+    __gtype_name__ = 'Panel'

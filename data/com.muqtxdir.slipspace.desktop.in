@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Slipspace
+Exec=slipspace
+Icon=com.muqtxdir.slipspace
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

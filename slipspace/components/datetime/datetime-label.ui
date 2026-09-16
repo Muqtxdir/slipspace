@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="DatetimeLabel" parent="AdwBin">
+    <property name="child">
+      <object class="GtkLabel">
+        <property name="label" bind-source="DatetimeLabel" bind-property="time" bind-flags="sync-create"/>
+      </object>
+    </property>
+  </template>
+</interface>

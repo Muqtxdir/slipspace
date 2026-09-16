@@ -1,0 +1,13 @@
+/build/
+/builddir/
+/_build/
+
+__pycache__/
+*.py[cod]
+
+.ninja_deps
+.ninja_log
+compile_commands.json
+
+*.swp
+*~
