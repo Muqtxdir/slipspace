@@ -7,6 +7,7 @@ install_data(
   install_dir: componentsdir,
 )
 
+subdir('battery')
 subdir('datetime')
 subdir('network')
 subdir('panel')
