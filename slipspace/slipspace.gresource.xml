@@ -7,12 +7,15 @@
     <file preprocess="xml-stripblanks">components/battery/battery-icon.ui</file>
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-icon.ui</file>
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-row.ui</file>
+    <file preprocess="xml-stripblanks">components/brightness/brightness-row.ui</file>
     <file preprocess="xml-stripblanks">components/datetime/datetime-label.ui</file>
     <file preprocess="xml-stripblanks">components/speaker/speaker-icon.ui</file>
+    <file preprocess="xml-stripblanks">components/speaker/speaker-row.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-icon.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-row.ui</file>
     <file preprocess="xml-stripblanks">components/panel/panel.ui</file>
     <file preprocess="xml-stripblanks">components/microphone/microphone-icon.ui</file>
+    <file preprocess="xml-stripblanks">components/microphone/microphone-row.ui</file>
     <file preprocess="xml-stripblanks">components/network/network-icon.ui</file>
     <file preprocess="xml-stripblanks">components/network/wifi-row.ui</file>
     <file preprocess="xml-stripblanks">components/network/lan-row.ui</file>
