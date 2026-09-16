@@ -16,4 +16,14 @@
 			</description>
 		</key>
 	</schema>
+	<schema id="com.muqtxdir.slipspace.battery" path="/com/muqtxdir/slipspace/battery/">
+		<key name="show-percentage" type="b">
+			<default>false</default>
+			<summary>Show the battery percentage</summary>
+			<description>
+				Whether the panel shows the charge percentage next to the
+				battery icon.
+			</description>
+		</key>
+	</schema>
 </schemalist>

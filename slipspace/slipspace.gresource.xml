@@ -4,6 +4,7 @@
     <file>style.css</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
+    <file preprocess="xml-stripblanks">components/battery/battery-icon.ui</file>
     <file preprocess="xml-stripblanks">components/datetime/datetime-label.ui</file>
     <file preprocess="xml-stripblanks">components/panel/panel.ui</file>
     <file preprocess="xml-stripblanks">components/network/network-icon.ui</file>
