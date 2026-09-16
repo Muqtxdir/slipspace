@@ -10,12 +10,15 @@
         <property name="show-end-title-buttons">False</property>
         <child type="end">
           <object class="GtkBox">
-            <property name="spacing">6</property>
+            <property name="spacing">12</property>
             <child>
               <object class="DatetimeLabel" />
             </child>
             <child>
               <object class="NetworkIcon" />
+            </child>
+            <child>
+              <object class="BatteryIcon" />
             </child>
           </object>
         </child>
