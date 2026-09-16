@@ -18,6 +18,12 @@
               <object class="NetworkIcon" />
             </child>
             <child>
+              <object class="MicrophoneIcon" />
+            </child>
+            <child>
+              <object class="SpeakerIcon" />
+            </child>
+            <child>
               <object class="BatteryIcon" />
             </child>
           </object>

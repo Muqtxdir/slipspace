@@ -9,5 +9,7 @@ install_data(
 
 subdir('battery')
 subdir('datetime')
+subdir('microphone')
 subdir('network')
+subdir('speaker')
 subdir('panel')

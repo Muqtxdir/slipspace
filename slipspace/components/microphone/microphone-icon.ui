@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="MicrophoneIcon" parent="AdwBin">
+    <property name="child">
+      <object class="GtkImage">
+        <property name="icon-name" bind-source="MicrophoneIcon" bind-property="icon-name" bind-flags="sync-create"/>
+        <style>
+          <class name="panel-icon"/>
+        </style>
+      </object>
+    </property>
+  </template>
+</interface>
