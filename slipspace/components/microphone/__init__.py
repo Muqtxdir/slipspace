@@ -6,5 +6,6 @@
 
 from slipspace.components.microphone.microphone import Microphone
 from slipspace.components.microphone.microphone_icon import MicrophoneIcon
+from slipspace.components.microphone.microphone_row import MicrophoneRow
 
-__all__ = ["Microphone", "MicrophoneIcon"]
+__all__ = ["Microphone", "MicrophoneIcon", "MicrophoneRow"]
