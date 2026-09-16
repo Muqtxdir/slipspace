@@ -5,6 +5,7 @@ install_data(
     '__init__.py',
     'speaker.py',
     'speaker_icon.py',
+    'speaker_row.py',
   ],
   install_dir: componentsdir / 'speaker',
 )

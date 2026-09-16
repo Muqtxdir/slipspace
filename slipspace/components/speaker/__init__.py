@@ -6,5 +6,6 @@
 
 from slipspace.components.speaker.speaker import Speaker
 from slipspace.components.speaker.speaker_icon import SpeakerIcon
+from slipspace.components.speaker.speaker_row import SpeakerRow
 
-__all__ = ["Speaker", "SpeakerIcon"]
+__all__ = ["Speaker", "SpeakerIcon", "SpeakerRow"]
