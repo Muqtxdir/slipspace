@@ -6,6 +6,9 @@
     <property name="child">
       <object class="GtkLabel">
         <property name="label" bind-source="DatetimeLabel" bind-property="time" bind-flags="sync-create"/>
+        <style>
+          <class name="panel-clock"/>
+        </style>
       </object>
     </property>
   </template>
