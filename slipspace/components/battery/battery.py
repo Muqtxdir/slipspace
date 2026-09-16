@@ -12,7 +12,7 @@ from gi.repository import AstalBattery, Gio, GObject
 
 from gettext import gettext as _
 
-SCHEMA_ID = 'com.muqtxdir.slipspace.battery'
+BATTERY_SCHEMA_ID = 'com.muqtxdir.slipspace.battery'
 
 
 class Battery(GObject.Object):
@@ -32,7 +32,7 @@ class Battery(GObject.Object):
                         else AstalBattery.get_default())
 
         if settings is None:
-            settings = Gio.Settings.new(SCHEMA_ID)
+            settings = Gio.Settings.new(BATTERY_SCHEMA_ID)
 
         settings.bind('show-percentage', self, 'show-percentage',
                       Gio.SettingsBindFlags.GET)

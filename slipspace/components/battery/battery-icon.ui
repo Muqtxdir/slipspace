@@ -4,12 +4,22 @@
   <requires lib="libadwaita" version="1.0"/>
   <template class="BatteryIcon" parent="AdwBin">
     <property name="child">
-      <object class="AdwButtonContent">
-        <property name="icon-name" bind-source="BatteryIcon" bind-property="icon-name" bind-flags="sync-create"/>
-        <property name="label" bind-source="BatteryIcon" bind-property="label" bind-flags="sync-create"/>
-        <style>
-          <class name="panel-icon"/>
-        </style>
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name" bind-source="BatteryIcon" bind-property="icon-name" bind-flags="sync-create"/>
+            <style>
+              <class name="panel-icon"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label" bind-source="BatteryIcon" bind-property="label" bind-flags="sync-create"/>
+            <property name="visible" bind-source="BatteryIcon" bind-property="show-percentage" bind-flags="sync-create"/>
+          </object>
+        </child>
       </object>
     </property>
   </template>
