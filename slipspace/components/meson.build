@@ -9,6 +9,7 @@ install_data(
 
 subdir('battery')
 subdir('bluetooth')
+subdir('brightness')
 subdir('datetime')
 subdir('microphone')
 subdir('network')
