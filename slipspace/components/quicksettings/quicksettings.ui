@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="QuickSettings" parent="AdwBin">
+    <property name="child">
+      <object class="AdwOverlaySplitView" id="split_view">
+        <property name="sidebar-position">end</property>
+        <property name="max-sidebar-width">400</property>
+        <property name="sidebar-width-unit">px</property>
+        <property name="sidebar-width-fraction">0.3</property>
+        <property name="collapsed">True</property>
+        <property name="show-sidebar">False</property>
+        <property name="sidebar">
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="AdwHeaderBar">
+                <property name="show-title">False</property>
+                <property name="show-start-title-buttons">False</property>
+                <property name="show-end-title-buttons">False</property>
+                <child type="start">
+                  <object class="GtkButton">
+                    <property name="tooltip-text" translatable="yes">Back</property>
+                    <property name="icon-name">go-previous-symbolic</property>
+                    <signal name="clicked" handler="_on_dismiss_clicked"/>
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                  </object>
+                </child>
+                <child type="end">
+                  <object class="GtkToggleButton">
+                    <property name="can-target">False</property>
+                    <property name="can-focus">False</property>
+                    <property name="active" bind-source="QuickSettings" bind-property="show-settings" bind-flags="sync-create"/>
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="spacing">12</property>
+                        <child>
+                          <object class="DatetimeLabel" />
+                        </child>
+                        <child>
+                          <object class="NetworkIcon" />
+                        </child>
+                        <child>
+                          <object class="BluetoothIcon" />
+                        </child>
+                        <child>
+                          <object class="MicrophoneIcon" />
+                        </child>
+                        <child>
+                          <object class="SpeakerIcon" />
+                        </child>
+                        <child>
+                          <object class="PowerProfilesIcon" />
+                        </child>
+                        <child>
+                          <object class="BatteryIcon" />
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <property name="content">
+              <object class="AdwPreferencesPage">
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Connectivity</property>
+                    <child>
+                      <object class="WifiRow" />
+                    </child>
+                    <child>
+                      <object class="LanRow" />
+                    </child>
+                    <child>
+                      <object class="BluetoothRow" />
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Brightness</property>
+                    <child>
+                      <object class="BrightnessRow" />
+                    </child>
+                    <child>
+                      <object class="StyleRow" />
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Audio</property>
+                    <child>
+                      <object class="SpeakerRow" />
+                    </child>
+                    <child>
+                      <object class="MicrophoneRow" />
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Power</property>
+                    <child>
+                      <object class="PowerProfilesRow" />
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
