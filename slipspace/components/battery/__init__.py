@@ -7,4 +7,4 @@
 from slipspace.components.battery.battery import Battery
 from slipspace.components.battery.battery_icon import BatteryIcon
 
-__all__ = ['Battery', 'BatteryIcon']
+__all__ = ["Battery", "BatteryIcon"]

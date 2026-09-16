@@ -7,4 +7,4 @@
 from slipspace.components.network.network import Network
 from slipspace.components.network.network_icon import NetworkIcon
 
-__all__ = ['Network', 'NetworkIcon']
+__all__ = ["Network", "NetworkIcon"]

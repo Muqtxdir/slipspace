@@ -6,37 +6,34 @@
 
 import gi
 
-gi.require_version('GnomeDesktop', '4.0')
-
-from gi.repository import Gio, GLib, GnomeDesktop, GObject
+gi.require_version("GnomeDesktop", "4.0")
 
 from gettext import gettext as _
 
+from gi.repository import Gio, GLib, GnomeDesktop, GObject
+
 from slipspace.components.datetime.enums import ClockFormat
 
-DATETIME_SCHEMA_ID = 'com.muqtxdir.slipspace.datetime'
+DATETIME_SCHEMA_ID = "com.muqtxdir.slipspace.datetime"
 
 
 class Clock(GObject.Object):
+    __gtype_name__ = "Clock"
 
-    __gtype_name__ = 'Clock'
-
-    time_format = GObject.Property(type=str,
-                                   default=ClockFormat.TWENTY_FOUR_HOUR)
-    time = GObject.Property(type=str, default='')
+    time_format = GObject.Property(type=str, default=ClockFormat.TWENTY_FOUR_HOUR)
+    time = GObject.Property(type=str, default="")
 
     def __init__(self, settings: Gio.Settings = None, **kwargs):
         super().__init__(**kwargs)
 
         self._wall_clock = GnomeDesktop.WallClock()
-        self._wall_clock.connect('notify::clock', self._on_changed)
-        self.connect('notify::time-format', self._on_changed)
+        self._wall_clock.connect("notify::clock", self._on_changed)
+        self.connect("notify::time-format", self._on_changed)
 
         if settings is None:
             settings = Gio.Settings.new(DATETIME_SCHEMA_ID)
 
-        settings.bind('time-format', self, 'time-format',
-                      Gio.SettingsBindFlags.GET)
+        settings.bind("time-format", self, "time-format", Gio.SettingsBindFlags.GET)
 
         self._update()
 
@@ -53,9 +50,9 @@ class Clock(GObject.Object):
 
     def _format(self) -> str:
         if self.props.time_format == ClockFormat.TWELVE_HOUR:
-            return _('%l:%M %p')
+            return _("%l:%M %p")
 
-        return _('%H:%M')
+        return _("%H:%M")
 
     def _update(self) -> None:
-        self.props.time = ' '.join(self._now().format(self._format()).split())
+        self.props.time = " ".join(self._now().format(self._format()).split())

@@ -8,5 +8,5 @@ from enum import StrEnum
 
 
 class ClockFormat(StrEnum):
-    TWENTY_FOUR_HOUR = '24h'
-    TWELVE_HOUR = '12h'
+    TWENTY_FOUR_HOUR = "24h"
+    TWELVE_HOUR = "12h"

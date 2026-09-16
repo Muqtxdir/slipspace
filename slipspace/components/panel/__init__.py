@@ -6,4 +6,4 @@
 
 from slipspace.components.panel.panel import Panel
 
-__all__ = ['Panel']
+__all__ = ["Panel"]

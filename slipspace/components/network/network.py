@@ -6,18 +6,17 @@
 
 import gi
 
-gi.require_version('AstalNetwork', '0.1')
+gi.require_version("AstalNetwork", "0.1")
 
 from gi.repository import AstalNetwork, GObject
 
-WIRED_ICON = 'network-wired-symbolic'
-WIFI_ICON = 'network-wireless-signal-good-symbolic'
-OFFLINE_ICON = 'network-offline-symbolic'
+WIRED_ICON = "network-wired-symbolic"
+WIFI_ICON = "network-wireless-signal-good-symbolic"
+OFFLINE_ICON = "network-offline-symbolic"
 
 
 class Network(GObject.Object):
-
-    __gtype_name__ = 'Network'
+    __gtype_name__ = "Network"
 
     icon_name = GObject.Property(type=str, default=OFFLINE_ICON)
     available = GObject.Property(type=bool, default=False)
@@ -26,13 +25,12 @@ class Network(GObject.Object):
         super().__init__(**kwargs)
 
         self._wifi = None
-        self._network = (network if network is not None
-                         else AstalNetwork.get_default())
+        self._network = network if network is not None else AstalNetwork.get_default()
 
         if self._network is None:
             return
 
-        for signal in ('notify::primary', 'notify::wifi', 'notify::wired'):
+        for signal in ("notify::primary", "notify::wifi", "notify::wired"):
             self._network.connect(signal, self._on_changed)
 
         self._watch_wifi()
@@ -53,12 +51,14 @@ class Network(GObject.Object):
         if wifi is None:
             return
 
-        wifi.connect('notify::icon-name', self._on_changed)
-        wifi.connect('notify::enabled', self._on_changed)
+        wifi.connect("notify::icon-name", self._on_changed)
+        wifi.connect("notify::enabled", self._on_changed)
 
     def _has_device(self) -> bool:
-        return (self._network.props.wifi is not None
-                or self._network.props.wired is not None)
+        return (
+            self._network.props.wifi is not None
+            or self._network.props.wired is not None
+        )
 
     def _wifi_enabled(self) -> bool:
         wifi = self._network.props.wifi
@@ -71,14 +71,20 @@ class Network(GObject.Object):
         if primary == AstalNetwork.Primary.WIRED:
             wired = self._network.props.wired
 
-            return (wired.props.icon_name if wired is not None
-                    and wired.props.icon_name else WIRED_ICON)
+            return (
+                wired.props.icon_name
+                if wired is not None and wired.props.icon_name
+                else WIRED_ICON
+            )
 
         if primary == AstalNetwork.Primary.WIFI:
             wifi = self._network.props.wifi
 
-            return (wifi.props.icon_name if wifi is not None
-                    and wifi.props.icon_name else WIFI_ICON)
+            return (
+                wifi.props.icon_name
+                if wifi is not None and wifi.props.icon_name
+                else WIFI_ICON
+            )
 
         return OFFLINE_ICON
 
@@ -91,4 +97,5 @@ class Network(GObject.Object):
         self.props.icon_name = self._icon()
         self.props.available = (
             self._network.props.primary != AstalNetwork.Primary.UNKNOWN
-            or self._wifi_enabled())
+            or self._wifi_enabled()
+        )
