@@ -34,28 +34,4 @@ slipspace_sources = [
 
 install_data(slipspace_sources, install_dir: moduledir)
 
-slipspace_components_sources = [
-  'components/__init__.py',
-]
-
-install_data(slipspace_components_sources, install_dir: moduledir / 'components')
-
-slipspace_datetime_sources = [
-  'components/datetime/__init__.py',
-  'components/datetime/clock.py',
-  'components/datetime/datetime_label.py',
-  'components/datetime/enums.py',
-]
-
-install_data(slipspace_datetime_sources,
-  install_dir: moduledir / 'components' / 'datetime',
-)
-
-slipspace_panel_sources = [
-  'components/panel/__init__.py',
-  'components/panel/panel.py',
-]
-
-install_data(slipspace_panel_sources,
-  install_dir: moduledir / 'components' / 'panel',
-)
+subdir('components')
