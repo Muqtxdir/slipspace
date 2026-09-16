@@ -11,5 +11,7 @@
     <file preprocess="xml-stripblanks">components/panel/panel.ui</file>
     <file preprocess="xml-stripblanks">components/microphone/microphone-icon.ui</file>
     <file preprocess="xml-stripblanks">components/network/network-icon.ui</file>
+    <file preprocess="xml-stripblanks">components/network/wifi-row.ui</file>
+    <file preprocess="xml-stripblanks">components/network/lan-row.ui</file>
   </gresource>
 </gresources>
