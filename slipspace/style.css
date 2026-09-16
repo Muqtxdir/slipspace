@@ -1,5 +1,11 @@
-label.panel-clock {
+label.panel-clock,
+image.panel-icon {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+}
+
+image.panel-icon {
+  -gtk-icon-size: 16px;
+  margin-bottom: 2px;
 }

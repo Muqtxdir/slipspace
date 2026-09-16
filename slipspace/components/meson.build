@@ -8,4 +8,5 @@ install_data(
 )
 
 subdir('datetime')
+subdir('network')
 subdir('panel')

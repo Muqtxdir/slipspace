@@ -9,7 +9,15 @@
         <property name="show-start-title-buttons">False</property>
         <property name="show-end-title-buttons">False</property>
         <child type="end">
-          <object class="DatetimeLabel" />
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="DatetimeLabel" />
+            </child>
+            <child>
+              <object class="NetworkIcon" />
+            </child>
+          </object>
         </child>
       </object>
     </property>
