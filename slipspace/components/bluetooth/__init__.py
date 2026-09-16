@@ -6,5 +6,6 @@
 
 from slipspace.components.bluetooth.bluetooth import Bluetooth
 from slipspace.components.bluetooth.bluetooth_icon import BluetoothIcon
+from slipspace.components.bluetooth.bluetooth_row import BluetoothRow
 
-__all__ = ["Bluetooth", "BluetoothIcon"]
+__all__ = ["Bluetooth", "BluetoothIcon", "BluetoothRow"]
