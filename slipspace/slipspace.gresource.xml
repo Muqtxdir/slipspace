@@ -8,6 +8,7 @@
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-icon.ui</file>
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-row.ui</file>
     <file preprocess="xml-stripblanks">components/brightness/brightness-row.ui</file>
+    <file preprocess="xml-stripblanks">components/style/style-row.ui</file>
     <file preprocess="xml-stripblanks">components/datetime/datetime-label.ui</file>
     <file preprocess="xml-stripblanks">components/speaker/speaker-icon.ui</file>
     <file preprocess="xml-stripblanks">components/speaker/speaker-row.ui</file>
