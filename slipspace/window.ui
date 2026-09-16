@@ -7,16 +7,19 @@
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="content">
-      <object class="AdwToolbarView">
-        <child type="top">
-          <object class="Panel"/>
-        </child>
+      <object class="QuickSettings" id="quick_settings">
         <property name="content">
-          <object class="GtkLabel" id="label">
-            <property name="label" translatable="yes">Hello, World!</property>
-            <style>
-              <class name="title-1"/>
-            </style>
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="Panel" id="panel"/>
+            </child>
+            <property name="content">
+              <object class="AdwStatusPage">
+                <property name="icon-name">com.muqtxdir.slipspace</property>
+                <property name="title" translatable="yes">Slipspace</property>
+                <property name="description" translatable="yes">WIP</property>
+              </object>
+            </property>
           </object>
         </property>
       </object>
