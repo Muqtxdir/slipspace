@@ -5,6 +5,7 @@ install_data(
     '__init__.py',
     'microphone.py',
     'microphone_icon.py',
+    'microphone_row.py',
   ],
   install_dir: componentsdir / 'microphone',
 )
