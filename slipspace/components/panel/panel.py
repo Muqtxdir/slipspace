@@ -13,11 +13,15 @@ from gi.repository import Adw, GObject, Gtk
 
 from slipspace.components.battery import BatteryIcon
 from slipspace.components.datetime import DatetimeLabel
+from slipspace.components.microphone import MicrophoneIcon
 from slipspace.components.network import NetworkIcon
+from slipspace.components.speaker import SpeakerIcon
 
 GObject.type_ensure(BatteryIcon)
 GObject.type_ensure(DatetimeLabel)
+GObject.type_ensure(MicrophoneIcon)
 GObject.type_ensure(NetworkIcon)
+GObject.type_ensure(SpeakerIcon)
 
 
 @Gtk.Template(resource_path="/com/muqtxdir/slipspace/components/panel/panel.ui")
