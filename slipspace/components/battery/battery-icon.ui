@@ -4,8 +4,9 @@
   <requires lib="libadwaita" version="1.0"/>
   <template class="BatteryIcon" parent="AdwBin">
     <property name="child">
-      <object class="GtkImage">
+      <object class="AdwButtonContent">
         <property name="icon-name" bind-source="BatteryIcon" bind-property="icon-name" bind-flags="sync-create"/>
+        <property name="label" bind-source="BatteryIcon" bind-property="label" bind-flags="sync-create"/>
         <style>
           <class name="panel-icon"/>
         </style>

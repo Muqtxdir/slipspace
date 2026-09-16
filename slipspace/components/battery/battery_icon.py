@@ -20,10 +20,12 @@ class BatteryIcon(Adw.Bin):
     __gtype_name__ = 'BatteryIcon'
 
     icon_name = GObject.Property(type=str, default='')
+    label = GObject.Property(type=str, default='')
 
     def __init__(self, battery: Battery = None, **kwargs):
         super().__init__(**kwargs)
 
         self._battery = battery if battery is not None else Battery()
         self._battery.bind_property('icon-name', self, 'icon-name', GObject.BindingFlags.SYNC_CREATE)
+        self._battery.bind_property('label', self, 'label', GObject.BindingFlags.SYNC_CREATE)
         self._battery.bind_property('available', self, 'visible', GObject.BindingFlags.SYNC_CREATE)

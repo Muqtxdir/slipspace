@@ -3,6 +3,7 @@
 data/com.muqtxdir.slipspace.desktop.in
 data/com.muqtxdir.slipspace.gschema.xml
 data/com.muqtxdir.slipspace.metainfo.xml.in
+slipspace/components/battery/battery.py
 slipspace/components/datetime/clock.py
 slipspace/main.py
 slipspace/shortcuts-dialog.ui
