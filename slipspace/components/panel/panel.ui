@@ -18,6 +18,9 @@
               <object class="NetworkIcon" />
             </child>
             <child>
+              <object class="BluetoothIcon" />
+            </child>
+            <child>
               <object class="MicrophoneIcon" />
             </child>
             <child>
