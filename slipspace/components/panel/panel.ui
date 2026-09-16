@@ -9,26 +9,38 @@
         <property name="show-start-title-buttons">False</property>
         <property name="show-end-title-buttons">False</property>
         <child type="end">
-          <object class="GtkBox">
-            <property name="spacing">12</property>
-            <child>
-              <object class="DatetimeLabel" />
-            </child>
-            <child>
-              <object class="NetworkIcon" />
-            </child>
-            <child>
-              <object class="BluetoothIcon" />
-            </child>
-            <child>
-              <object class="MicrophoneIcon" />
-            </child>
-            <child>
-              <object class="SpeakerIcon" />
-            </child>
-            <child>
-              <object class="BatteryIcon" />
-            </child>
+          <object class="GtkToggleButton">
+            <property name="tooltip-text" translatable="yes">Quick Settings</property>
+            <property name="active" bind-source="Panel" bind-property="show-settings" bind-flags="sync-create|bidirectional"/>
+            <style>
+              <class name="flat"/>
+            </style>
+            <property name="child">
+              <object class="GtkBox">
+                <property name="spacing">12</property>
+                <child>
+                  <object class="DatetimeLabel" />
+                </child>
+                <child>
+                  <object class="NetworkIcon" />
+                </child>
+                <child>
+                  <object class="BluetoothIcon" />
+                </child>
+                <child>
+                  <object class="MicrophoneIcon" />
+                </child>
+                <child>
+                  <object class="SpeakerIcon" />
+                </child>
+                <child>
+                  <object class="PowerProfilesIcon" />
+                </child>
+                <child>
+                  <object class="BatteryIcon" />
+                </child>
+              </object>
+            </property>
           </object>
         </child>
       </object>
