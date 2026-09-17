@@ -9,3 +9,43 @@ image.panel-icon {
   -gtk-icon-size: 16px;
   margin-bottom: 2px;
 }
+
+checkbutton.accent-swatch > radio {
+  box-shadow: none;
+}
+
+checkbutton.accent-swatch.blue > radio {
+  background-color: var(--accent-blue);
+}
+
+checkbutton.accent-swatch.teal > radio {
+  background-color: var(--accent-teal);
+}
+
+checkbutton.accent-swatch.green > radio {
+  background-color: var(--accent-green);
+}
+
+checkbutton.accent-swatch.yellow > radio {
+  background-color: var(--accent-yellow);
+}
+
+checkbutton.accent-swatch.orange > radio {
+  background-color: var(--accent-orange);
+}
+
+checkbutton.accent-swatch.red > radio {
+  background-color: var(--accent-red);
+}
+
+checkbutton.accent-swatch.pink > radio {
+  background-color: var(--accent-pink);
+}
+
+checkbutton.accent-swatch.purple > radio {
+  background-color: var(--accent-purple);
+}
+
+checkbutton.accent-swatch.slate > radio {
+  background-color: var(--accent-slate);
+}

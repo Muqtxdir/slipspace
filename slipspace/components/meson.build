@@ -7,6 +7,7 @@ install_data(
   install_dir: componentsdir,
 )
 
+subdir('appearance')
 subdir('battery')
 subdir('bluetooth')
 subdir('brightness')
@@ -15,6 +16,5 @@ subdir('microphone')
 subdir('network')
 subdir('powerprofiles')
 subdir('speaker')
-subdir('style')
 subdir('quicksettings')
 subdir('panel')
