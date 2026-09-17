@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="MenuOverlay" parent="AdwBin">
+    <property name="child">
+      <object class="AdwOverlaySplitView" id="split_view">
+        <property name="sidebar-position">start</property>
+        <property name="collapsed">True</property>
+        <property name="show-sidebar">False</property>
+        <property name="min-sidebar-width">220</property>
+        <property name="max-sidebar-width">300</property>
+        <property name="sidebar-width-fraction">0.5</property>
+        <property name="sidebar">
+          <object class="AdwSidebar" id="items">
+            <signal name="activated" handler="_on_items_activated" swapped="no"/>
+            <child>
+              <object class="AdwSidebarSection">
+                <child>
+                  <object class="MenuItem">
+                    <property name="tag">home</property>
+                    <property name="title" translatable="yes">Home</property>
+                    <property name="icon-name">user-home-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
