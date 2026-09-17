@@ -7,17 +7,67 @@
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="content">
-      <object class="QuickSettings" id="quick_settings">
+      <object class="QuickSettingsOverlay" id="quick_settings_overlay">
         <property name="content">
           <object class="AdwToolbarView">
-            <child type="top">
-              <object class="Panel" id="panel"/>
+            <property name="bottom-bar-style">raised</property>
+            <child type="bottom">
+              <object class="GtkToggleButton">
+                <property name="halign">start</property>
+                <property name="margin-start">6</property>
+                <property name="margin-end">6</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">6</property>
+                <property name="action-name">win.menu</property>
+                <property name="child">
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">open-menu-symbolic</property>
+                    <property name="label" translatable="yes">Menu</property>
+                  </object>
+                </property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
             </child>
             <property name="content">
-              <object class="AdwStatusPage">
-                <property name="icon-name">com.muqtxdir.slipspace</property>
-                <property name="title" translatable="yes">Slipspace</property>
-                <property name="description" translatable="yes">WIP</property>
+              <object class="MenuOverlay" id="menu_overlay">
+                <property name="stack">
+                  <object class="AdwViewStack" id="views">
+                    <property name="enable-transitions">True</property>
+                    <child>
+                      <object class="AdwViewStackPage">
+                        <property name="name">home</property>
+                        <property name="title" translatable="yes">Home</property>
+                        <property name="child">
+                          <object class="AdwToolbarView">
+                            <child type="top">
+                              <object class="AdwHeaderBar">
+                                <property name="show-start-title-buttons">False</property>
+                                <property name="show-end-title-buttons">False</property>
+                                <property name="title-widget">
+                                  <object class="AdwWindowTitle">
+                                    <property name="title" translatable="yes">Home</property>
+                                  </object>
+                                </property>
+                                <child type="end">
+                                  <object class="QuickSettingsButton"/>
+                                </child>
+                              </object>
+                            </child>
+                            <property name="content">
+                              <object class="AdwStatusPage">
+                                <property name="icon-name">com.muqtxdir.slipspace</property>
+                                <property name="title" translatable="yes">Home</property>
+                                <property name="description" translatable="yes">Home view placeholder</property>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
               </object>
             </property>
           </object>

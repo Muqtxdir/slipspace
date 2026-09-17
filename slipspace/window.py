@@ -4,28 +4,45 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from gi.repository import Adw, GObject, Gtk
+from gi.repository import Adw, Gio, GObject, Gtk
 
-from slipspace.components.panel import Panel
-from slipspace.components.quicksettings import QuickSettings
+from slipspace.components.menu import MenuOverlay
+from slipspace.components.quicksettings import (
+    QuickSettingsButton,
+    QuickSettingsOverlay,
+)
 
-GObject.type_ensure(Panel)
-GObject.type_ensure(QuickSettings)
+GObject.type_ensure(QuickSettingsOverlay)
+GObject.type_ensure(QuickSettingsButton)
+GObject.type_ensure(MenuOverlay)
 
 
 @Gtk.Template(resource_path="/com/muqtxdir/slipspace/window.ui")
 class SlipspaceWindow(Adw.ApplicationWindow):
     __gtype_name__ = "SlipspaceWindow"
 
-    panel = Gtk.Template.Child()
-    quick_settings = Gtk.Template.Child()
+    quick_settings_overlay = Gtk.Template.Child()
+    menu_overlay = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.panel.bind_property(
-            "show-settings",
-            self.quick_settings,
-            "show-settings",
-            GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
+        self.add_action(
+            Gio.PropertyAction.new(
+                "quick-settings", self.quick_settings_overlay, "show-settings"
+            )
         )
+        self.add_action(Gio.PropertyAction.new("menu", self.menu_overlay, "show-menu"))
+
+        self.quick_settings_overlay.connect(
+            "notify::show-settings", self._on_quick_settings_shown
+        )
+        self.menu_overlay.connect("notify::show-menu", self._on_menu_shown)
+
+    def _on_quick_settings_shown(self, _object, _pspec):
+        if self.quick_settings_overlay.props.show_settings:
+            self.menu_overlay.props.show_menu = False
+
+    def _on_menu_shown(self, _object, _pspec):
+        if self.menu_overlay.props.show_menu:
+            self.quick_settings_overlay.props.show_settings = False
