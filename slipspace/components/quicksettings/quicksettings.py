@@ -11,30 +11,25 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, GObject, Gtk
 
-from slipspace.components.battery import BatteryIcon
-from slipspace.components.bluetooth import BluetoothIcon, BluetoothRow
+from slipspace.components.appearance import StyleRow
+from slipspace.components.bluetooth import BluetoothRow
 from slipspace.components.brightness import BrightnessRow
-from slipspace.components.datetime import DatetimeLabel
-from slipspace.components.microphone import MicrophoneIcon, MicrophoneRow
-from slipspace.components.network import LanRow, NetworkIcon, WifiRow
-from slipspace.components.powerprofiles import PowerProfilesIcon, PowerProfilesRow
-from slipspace.components.speaker import SpeakerIcon, SpeakerRow
-from slipspace.components.style import StyleRow
+from slipspace.components.microphone import MicrophoneRow
+from slipspace.components.network import LanRow, WifiRow
+from slipspace.components.powerprofiles import PowerProfilesRow
+from slipspace.components.quicksettings.quicksettings_button import (
+    QuickSettingsButton,
+)
+from slipspace.components.speaker import SpeakerRow
 
-GObject.type_ensure(BatteryIcon)
-GObject.type_ensure(BluetoothIcon)
 GObject.type_ensure(BluetoothRow)
+GObject.type_ensure(QuickSettingsButton)
 GObject.type_ensure(BrightnessRow)
 GObject.type_ensure(StyleRow)
-GObject.type_ensure(DatetimeLabel)
-GObject.type_ensure(MicrophoneIcon)
 GObject.type_ensure(MicrophoneRow)
 GObject.type_ensure(LanRow)
-GObject.type_ensure(NetworkIcon)
-GObject.type_ensure(PowerProfilesIcon)
 GObject.type_ensure(PowerProfilesRow)
 GObject.type_ensure(WifiRow)
-GObject.type_ensure(SpeakerIcon)
 GObject.type_ensure(SpeakerRow)
 
 

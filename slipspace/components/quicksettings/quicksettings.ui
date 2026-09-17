@@ -29,39 +29,9 @@
                   </object>
                 </child>
                 <child type="end">
-                  <object class="GtkToggleButton">
+                  <object class="QuickSettingsButton">
                     <property name="can-target">False</property>
                     <property name="can-focus">False</property>
-                    <property name="active" bind-source="QuickSettings" bind-property="show-settings" bind-flags="sync-create"/>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="spacing">12</property>
-                        <child>
-                          <object class="DatetimeLabel" />
-                        </child>
-                        <child>
-                          <object class="NetworkIcon" />
-                        </child>
-                        <child>
-                          <object class="BluetoothIcon" />
-                        </child>
-                        <child>
-                          <object class="MicrophoneIcon" />
-                        </child>
-                        <child>
-                          <object class="SpeakerIcon" />
-                        </child>
-                        <child>
-                          <object class="PowerProfilesIcon" />
-                        </child>
-                        <child>
-                          <object class="BatteryIcon" />
-                        </child>
-                      </object>
-                    </property>
                   </object>
                 </child>
               </object>
@@ -70,15 +40,22 @@
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="StyleRow"/>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Connectivity</property>
                     <child>
-                      <object class="WifiRow" />
+                      <object class="WifiRow"/>
                     </child>
                     <child>
-                      <object class="LanRow" />
+                      <object class="LanRow"/>
                     </child>
                     <child>
-                      <object class="BluetoothRow" />
+                      <object class="BluetoothRow"/>
                     </child>
                   </object>
                 </child>
@@ -86,10 +63,7 @@
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Brightness</property>
                     <child>
-                      <object class="BrightnessRow" />
-                    </child>
-                    <child>
-                      <object class="StyleRow" />
+                      <object class="BrightnessRow"/>
                     </child>
                   </object>
                 </child>
@@ -97,10 +71,10 @@
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Audio</property>
                     <child>
-                      <object class="SpeakerRow" />
+                      <object class="SpeakerRow"/>
                     </child>
                     <child>
-                      <object class="MicrophoneRow" />
+                      <object class="MicrophoneRow"/>
                     </child>
                   </object>
                 </child>
@@ -108,7 +82,7 @@
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Power</property>
                     <child>
-                      <object class="PowerProfilesRow" />
+                      <object class="PowerProfilesRow"/>
                     </child>
                   </object>
                 </child>

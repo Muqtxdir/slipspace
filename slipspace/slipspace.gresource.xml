@@ -16,7 +16,7 @@
     <file preprocess="xml-stripblanks">components/quicksettings/quicksettings.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-icon.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-row.ui</file>
-    <file preprocess="xml-stripblanks">components/panel/panel.ui</file>
+    <file preprocess="xml-stripblanks">components/quicksettings/quicksettings-button.ui</file>
     <file preprocess="xml-stripblanks">components/microphone/microphone-icon.ui</file>
     <file preprocess="xml-stripblanks">components/microphone/microphone-row.ui</file>
     <file preprocess="xml-stripblanks">components/network/network-icon.ui</file>

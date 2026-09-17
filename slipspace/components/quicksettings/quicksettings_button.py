@@ -1,4 +1,4 @@
-# panel.py
+# quicksettings_button.py
 #
 # Copyright 2026 Muqtadir
 #
@@ -7,9 +7,8 @@
 import gi
 
 gi.require_version("Gtk", "4.0")
-gi.require_version("Adw", "1")
 
-from gi.repository import Adw, GObject, Gtk
+from gi.repository import GObject, Gtk
 
 from slipspace.components.battery import BatteryIcon
 from slipspace.components.bluetooth import BluetoothIcon
@@ -28,8 +27,8 @@ GObject.type_ensure(PowerProfilesIcon)
 GObject.type_ensure(SpeakerIcon)
 
 
-@Gtk.Template(resource_path="/com/muqtxdir/slipspace/components/panel/panel.ui")
-class Panel(Adw.Bin):
-    __gtype_name__ = "Panel"
-
-    show_settings = GObject.Property(type=bool, default=False)
+@Gtk.Template(
+    resource_path="/com/muqtxdir/slipspace/components/quicksettings/quicksettings-button.ui"
+)
+class QuickSettingsButton(Gtk.ToggleButton):
+    __gtype_name__ = "QuickSettingsButton"
