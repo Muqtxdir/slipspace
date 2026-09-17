@@ -1,10 +1,10 @@
 componentsdir = moduledir / 'components'
 
 install_data(
-  [
-    '__init__.py',
-  ],
-  install_dir: componentsdir,
+    [
+        '__init__.py',
+    ],
+    install_dir: componentsdir,
 )
 
 subdir('appearance')
@@ -17,4 +17,3 @@ subdir('network')
 subdir('powerprofiles')
 subdir('speaker')
 subdir('quicksettings')
-subdir('panel')

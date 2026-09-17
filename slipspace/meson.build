@@ -2,11 +2,12 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir = pkgdatadir / 'slipspace'
 gnome = import('gnome')
 
-gnome.compile_resources('slipspace',
-  'slipspace.gresource.xml',
-  gresource_bundle: true,
-  install: true,
-  install_dir: pkgdatadir,
+gnome.compile_resources(
+    'slipspace',
+    'slipspace.gresource.xml',
+    gresource_bundle: true,
+    install: true,
+    install_dir: pkgdatadir,
 )
 
 python = import('python')
@@ -18,18 +19,18 @@ conf.set('localedir', get_option('prefix') / get_option('localedir'))
 conf.set('pkgdatadir', pkgdatadir)
 
 configure_file(
-  input: 'slipspace.in',
-  output: 'slipspace',
-  configuration: conf,
-  install: true,
-  install_dir: get_option('bindir'),
-  install_mode: 'rwxr-xr-x'
+    input: 'slipspace.in',
+    output: 'slipspace',
+    configuration: conf,
+    install: true,
+    install_dir: get_option('bindir'),
+    install_mode: 'rwxr-xr-x',
 )
 
 slipspace_sources = [
-  '__init__.py',
-  'main.py',
-  'window.py',
+    '__init__.py',
+    'main.py',
+    'window.py',
 ]
 
 install_data(slipspace_sources, install_dir: moduledir)
