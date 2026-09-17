@@ -22,6 +22,6 @@
     <file preprocess="xml-stripblanks">components/microphone/microphone-row.ui</file>
     <file preprocess="xml-stripblanks">components/network/network-icon.ui</file>
     <file preprocess="xml-stripblanks">components/network/wifi-row.ui</file>
-    <file preprocess="xml-stripblanks">components/network/lan-row.ui</file>
+    <file preprocess="xml-stripblanks">components/network/ethernet-row.ui</file>
   </gresource>
 </gresources>

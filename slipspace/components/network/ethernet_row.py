@@ -1,4 +1,4 @@
-# lan_row.py
+# ethernet_row.py
 #
 # Copyright 2026 Muqtadir
 #
@@ -14,9 +14,11 @@ from gi.repository import Adw, GObject, Gtk
 from slipspace.components.network.network import Network
 
 
-@Gtk.Template(resource_path="/com/muqtxdir/slipspace/components/network/lan-row.ui")
-class LanRow(Adw.ActionRow):
-    __gtype_name__ = "LanRow"
+@Gtk.Template(
+    resource_path="/com/muqtxdir/slipspace/components/network/ethernet-row.ui"
+)
+class EthernetRow(Adw.ActionRow):
+    __gtype_name__ = "EthernetRow"
 
     icon_name = GObject.Property(type=str, default="")
 

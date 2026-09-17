@@ -4,9 +4,9 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from slipspace.components.network.lan_row import LanRow
+from slipspace.components.network.ethernet_row import EthernetRow
 from slipspace.components.network.network import Network
 from slipspace.components.network.network_icon import NetworkIcon
 from slipspace.components.network.wifi_row import WifiRow
 
-__all__ = ["LanRow", "Network", "NetworkIcon", "WifiRow"]
+__all__ = ["EthernetRow", "Network", "NetworkIcon", "WifiRow"]

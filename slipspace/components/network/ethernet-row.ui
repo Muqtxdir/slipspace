@@ -2,11 +2,11 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
-  <template class="LanRow" parent="AdwActionRow">
+  <template class="EthernetRow" parent="AdwActionRow">
     <property name="title" translatable="yes">Wired</property>
     <child type="prefix">
       <object class="GtkImage">
-        <property name="icon-name" bind-source="LanRow" bind-property="icon-name" bind-flags="sync-create"/>
+        <property name="icon-name" bind-source="EthernetRow" bind-property="icon-name" bind-flags="sync-create"/>
       </object>
     </child>
   </template>

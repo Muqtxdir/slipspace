@@ -52,7 +52,7 @@
                       <object class="WifiRow"/>
                     </child>
                     <child>
-                      <object class="LanRow"/>
+                      <object class="EthernetRow"/>
                     </child>
                     <child>
                       <object class="BluetoothRow"/>

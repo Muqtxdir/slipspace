@@ -12,7 +12,7 @@ slipspace/components/bluetooth/bluetooth.py
 slipspace/components/datetime/clock.py
 slipspace/components/menu/menu-overlay.ui
 slipspace/components/microphone/microphone_row.py
-slipspace/components/network/lan-row.ui
+slipspace/components/network/ethernet-row.ui
 slipspace/components/network/network.py
 slipspace/components/network/wifi-row.ui
 slipspace/components/powerprofiles/powerprofiles-row.ui

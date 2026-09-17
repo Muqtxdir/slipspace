@@ -15,7 +15,7 @@ from slipspace.components.appearance import StyleRow
 from slipspace.components.bluetooth import BluetoothRow
 from slipspace.components.brightness import BrightnessRow
 from slipspace.components.microphone import MicrophoneRow
-from slipspace.components.network import LanRow, WifiRow
+from slipspace.components.network import EthernetRow, WifiRow
 from slipspace.components.powerprofiles import PowerProfilesRow
 from slipspace.components.quicksettings.quicksettings_button import (
     QuickSettingsButton,
@@ -27,7 +27,7 @@ GObject.type_ensure(QuickSettingsButton)
 GObject.type_ensure(BrightnessRow)
 GObject.type_ensure(StyleRow)
 GObject.type_ensure(MicrophoneRow)
-GObject.type_ensure(LanRow)
+GObject.type_ensure(EthernetRow)
 GObject.type_ensure(PowerProfilesRow)
 GObject.type_ensure(WifiRow)
 GObject.type_ensure(SpeakerRow)
