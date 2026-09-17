@@ -15,6 +15,7 @@ slipspace/components/microphone/microphone_row.py
 slipspace/components/network/ethernet-row.ui
 slipspace/components/network/network.py
 slipspace/components/network/wifi-row.ui
+slipspace/components/power/power_dialog.py
 slipspace/components/powerprofiles/powerprofiles-row.ui
 slipspace/components/powerprofiles/powerprofiles.py
 slipspace/components/quicksettings/quicksettings-button.ui

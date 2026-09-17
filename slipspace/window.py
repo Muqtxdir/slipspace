@@ -7,6 +7,7 @@
 from gi.repository import Adw, Gio, GObject, Gtk
 
 from slipspace.components.menu import MenuOverlay
+from slipspace.components.power import PowerDialog
 from slipspace.components.quicksettings import (
     QuickSettingsButton,
     QuickSettingsOverlay,
@@ -34,10 +35,17 @@ class SlipspaceWindow(Adw.ApplicationWindow):
         )
         self.add_action(Gio.PropertyAction.new("menu", self.menu_overlay, "show-menu"))
 
+        power = Gio.SimpleAction.new("power", None)
+        power.connect("activate", self._on_power_activate)
+        self.add_action(power)
+
         self.quick_settings_overlay.connect(
             "notify::show-settings", self._on_quick_settings_shown
         )
         self.menu_overlay.connect("notify::show-menu", self._on_menu_shown)
+
+    def _on_power_activate(self, _action, _parameter):
+        PowerDialog().present(self)
 
     def _on_quick_settings_shown(self, _object, _pspec):
         if self.quick_settings_overlay.props.show_settings:

@@ -12,22 +12,37 @@
           <object class="AdwToolbarView">
             <property name="bottom-bar-style">raised</property>
             <child type="bottom">
-              <object class="GtkToggleButton">
-                <property name="halign">start</property>
+              <object class="GtkBox">
                 <property name="margin-start">6</property>
                 <property name="margin-end">6</property>
                 <property name="margin-top">6</property>
                 <property name="margin-bottom">6</property>
-                <property name="action-name">win.menu</property>
-                <property name="child">
-                  <object class="AdwButtonContent">
-                    <property name="icon-name">open-menu-symbolic</property>
-                    <property name="label" translatable="yes">Menu</property>
+                <child>
+                  <object class="GtkToggleButton">
+                    <property name="action-name">win.menu</property>
+                    <property name="child">
+                      <object class="AdwButtonContent">
+                        <property name="icon-name">open-menu-symbolic</property>
+                        <property name="label" translatable="yes">Menu</property>
+                      </object>
+                    </property>
+                    <style>
+                      <class name="flat"/>
+                    </style>
                   </object>
-                </property>
-                <style>
-                  <class name="flat"/>
-                </style>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="hexpand">True</property>
+                    <property name="halign">end</property>
+                    <property name="icon-name">system-shutdown-symbolic</property>
+                    <property name="tooltip-text" translatable="yes">Power</property>
+                    <property name="action-name">win.power</property>
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
             <property name="content">
