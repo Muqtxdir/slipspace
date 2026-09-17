@@ -1,4 +1,4 @@
-# quicksettings.py
+# quicksettings_overlay.py
 #
 # Copyright 2026 Muqtadir
 #
@@ -34,10 +34,10 @@ GObject.type_ensure(SpeakerRow)
 
 
 @Gtk.Template(
-    resource_path="/com/muqtxdir/slipspace/components/quicksettings/quicksettings.ui"
+    resource_path="/com/muqtxdir/slipspace/components/quicksettings/quicksettings-overlay.ui"
 )
-class QuickSettings(Adw.Bin):
-    __gtype_name__ = "QuickSettings"
+class QuickSettingsOverlay(Adw.Bin):
+    __gtype_name__ = "QuickSettingsOverlay"
 
     split_view = Gtk.Template.Child()
 

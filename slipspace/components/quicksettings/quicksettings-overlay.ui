@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
-  <template class="QuickSettings" parent="AdwBin">
+  <template class="QuickSettingsOverlay" parent="AdwBin">
     <property name="child">
       <object class="AdwOverlaySplitView" id="split_view">
         <property name="sidebar-position">end</property>

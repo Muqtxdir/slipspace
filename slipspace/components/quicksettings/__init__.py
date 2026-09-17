@@ -4,7 +4,11 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from slipspace.components.quicksettings.quicksettings import QuickSettings
-from slipspace.components.quicksettings.quicksettings_button import QuickSettingsButton
+from slipspace.components.quicksettings.quicksettings_button import (
+    QuickSettingsButton,
+)
+from slipspace.components.quicksettings.quicksettings_overlay import (
+    QuickSettingsOverlay,
+)
 
-__all__ = ["QuickSettings", "QuickSettingsButton"]
+__all__ = ["QuickSettingsButton", "QuickSettingsOverlay"]
