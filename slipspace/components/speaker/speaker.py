@@ -8,7 +8,6 @@ import gi
 
 gi.require_version("AstalWp", "0.1")
 
-from gettext import gettext as _
 
 from gi.repository import AstalWp, GObject
 
@@ -20,7 +19,6 @@ class Speaker(GObject.Object):
     available = GObject.Property(type=bool, default=False)
     volume = GObject.Property(type=float, default=0.0)
     mute = GObject.Property(type=bool, default=False)
-    subtitle = GObject.Property(type=str, default="")
     has_speaker = GObject.Property(type=bool, default=False)
 
     def __init__(self, wp: AstalWp.Wp = None, **kwargs):
@@ -36,21 +34,8 @@ class Speaker(GObject.Object):
 
         self._wp.connect("notify::default-speaker", self._on_changed)
 
-        self.connect("notify::volume", self._on_volume_changed)
-        self.connect("notify::mute", self._on_volume_changed)
-
         self._watch_speaker()
         self._update()
-
-    def _on_volume_changed(self, _object, _pspec):
-        self._update_subtitle()
-
-    def _update_subtitle(self) -> None:
-        if self.props.mute:
-            self.props.subtitle = _("Mute")
-            return
-
-        self.props.subtitle = _("%d%%") % round(self.props.volume * 100)
 
     def _on_changed(self, _object, _pspec):
         self._watch_speaker()
@@ -100,5 +85,4 @@ class Speaker(GObject.Object):
             return
 
         self.props.icon_name = speaker.props.volume_icon
-        self._update_subtitle()
         self.props.available = True
