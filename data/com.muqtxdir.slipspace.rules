@@ -1,0 +1,18 @@
+// Copyright 2026 Muqtadir
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// slipspace configures its own timezone, language and keyboard layout, and it
+// runs with no session polkit agent. Grant those actions outright, so no
+// authentication prompt can appear with nothing to answer it.
+
+polkit.addRule(function (action, subject) {
+    if (!subject.local || !subject.active || !subject.isInGroup("wheel"))
+        return;
+
+    if (action.id === "org.freedesktop.timedate1.set-timezone" ||
+        action.id === "org.freedesktop.locale1.set-locale" ||
+        action.id === "org.freedesktop.locale1.set-keyboard") {
+        return polkit.Result.YES;
+    }
+});

@@ -32,6 +32,11 @@ install_data(
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
 
+install_data(
+    'com.muqtxdir.slipspace.rules',
+    install_dir: get_option('datadir') / 'polkit-1' / 'rules.d',
+)
+
 compile_schemas = find_program(
     'glib-compile-schemas',
     required: false,
