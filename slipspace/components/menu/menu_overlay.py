@@ -22,6 +22,12 @@ class MenuOverlay(Adw.Bin):
 
     _split_view: Adw.OverlaySplitView = Gtk.Template.Child("split_view")
     _items: Adw.Sidebar = Gtk.Template.Child("items")
+    _power: Adw.Sidebar = Gtk.Template.Child("power")
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self._power.props.selected = Gtk.INVALID_LIST_POSITION
 
     @GObject.Property(type=Adw.ViewStack)
     def stack(self):
@@ -54,6 +60,12 @@ class MenuOverlay(Adw.Bin):
     def _on_items_activated(self, _sidebar: Adw.Sidebar, _index: int) -> None:
         self._show_selected_page()
         self.props.show_menu = False
+
+    @Gtk.Template.Callback()
+    def _on_power_activated(self, sidebar: Adw.Sidebar, _index: int) -> None:
+        sidebar.props.selected = Gtk.INVALID_LIST_POSITION
+        self.props.show_menu = False
+        self.activate_action("win.power", None)
 
     def _show_selected_page(self) -> None:
         item = self._items.get_selected_item()

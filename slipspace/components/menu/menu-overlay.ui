@@ -8,19 +8,44 @@
         <property name="sidebar-position">start</property>
         <property name="collapsed">True</property>
         <property name="show-sidebar">False</property>
-        <property name="min-sidebar-width">220</property>
-        <property name="max-sidebar-width">300</property>
-        <property name="sidebar-width-fraction">0.5</property>
         <property name="sidebar">
-          <object class="AdwSidebar" id="items">
-            <signal name="activated" handler="_on_items_activated" swapped="no"/>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
             <child>
-              <object class="AdwSidebarSection">
+              <object class="AdwSidebar" id="items">
+                <property name="vexpand">True</property>
+                <signal name="activated" handler="_on_items_activated" swapped="no"/>
                 <child>
-                  <object class="MenuItem">
-                    <property name="tag">home</property>
-                    <property name="title" translatable="yes">Home</property>
-                    <property name="icon-name">user-home-symbolic</property>
+                  <object class="AdwSidebarSection">
+                    <child>
+                      <object class="MenuItem">
+                        <property name="tag">home</property>
+                        <property name="title" translatable="yes">Home</property>
+                        <property name="icon-name">user-home-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="MenuItem">
+                        <property name="tag">settings</property>
+                        <property name="title" translatable="yes">Settings</property>
+                        <property name="icon-name">com.muqtxdir.slipspace.settings-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSidebar" id="power">
+                <signal name="activated" handler="_on_power_activated" swapped="no"/>
+                <child>
+                  <object class="AdwSidebarSection">
+                    <child>
+                      <object class="AdwSidebarItem">
+                        <property name="title" translatable="yes">Power</property>
+                        <property name="icon-name">system-shutdown-symbolic</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
