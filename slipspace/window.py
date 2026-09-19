@@ -7,6 +7,7 @@
 from gi.repository import Adw, Gio, GObject, Gtk
 
 from slipspace.components.menu import MenuOverlay
+from slipspace.components.panels import TopPanel
 from slipspace.components.power import PowerDialog
 from slipspace.components.quicksettings import (
     QuickSettingsButton,
@@ -16,7 +17,7 @@ from slipspace.components.quicksettings import (
 GObject.type_ensure(QuickSettingsOverlay)
 GObject.type_ensure(QuickSettingsButton)
 GObject.type_ensure(MenuOverlay)
-
+GObject.type_ensure(TopPanel)
 
 @Gtk.Template(resource_path="/com/muqtxdir/slipspace/window.ui")
 class SlipspaceWindow(Adw.ApplicationWindow):

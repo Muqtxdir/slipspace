@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TopPanel" parent="GtkCenterBox">
+    <child type="start">
+      <object class="GtkToggleButton">
+        <property name="action-name">win.menu</property>
+        <property name="icon-name">sidebar-show-symbolic</property>
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
+    <child type="end">
+      <object class="QuickSettingsButton">
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

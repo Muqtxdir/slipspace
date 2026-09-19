@@ -7,44 +7,17 @@
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="content">
-      <object class="QuickSettingsOverlay" id="quick_settings_overlay">
-        <property name="content">
-          <object class="AdwToolbarView">
-            <property name="bottom-bar-style">raised</property>
-            <child type="bottom">
-              <object class="GtkBox">
-                <property name="margin-start">6</property>
-                <property name="margin-end">6</property>
-                <property name="margin-top">6</property>
-                <property name="margin-bottom">6</property>
-                <child>
-                  <object class="GtkToggleButton">
-                    <property name="action-name">win.menu</property>
-                    <property name="child">
-                      <object class="AdwButtonContent">
-                        <property name="icon-name">open-menu-symbolic</property>
-                        <property name="label" translatable="yes">Menu</property>
-                      </object>
-                    </property>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="hexpand">True</property>
-                    <property name="halign">end</property>
-                    <property name="icon-name">system-shutdown-symbolic</property>
-                    <property name="tooltip-text" translatable="yes">Power</property>
-                    <property name="action-name">win.power</property>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="TopPanel"/>
+        </child>
+        <child>
+          <object class="GtkSeparator"/>
+        </child>
+        <child>
+          <object class="QuickSettingsOverlay" id="quick_settings_overlay">
+            <property name="vexpand">True</property>
             <property name="content">
               <object class="MenuOverlay" id="menu_overlay">
                 <property name="stack">
@@ -65,9 +38,6 @@
                                     <property name="title" translatable="yes">Home</property>
                                   </object>
                                 </property>
-                                <child type="end">
-                                  <object class="QuickSettingsButton"/>
-                                </child>
                               </object>
                             </child>
                             <property name="content">
@@ -86,7 +56,7 @@
               </object>
             </property>
           </object>
-        </property>
+        </child>
       </object>
     </property>
   </template>
