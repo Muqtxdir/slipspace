@@ -83,18 +83,15 @@ class Bluetooth(GObject.Object):
             GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
         )
 
-    def _connected_devices(self) -> list:
-        return [
-            device
-            for device in self._bluetooth.props.devices or []
-            if device.props.connected
-        ]
-
     def _subtitle(self) -> str:
         if not self._bluetooth.props.is_powered:
             return _("Off")
 
-        devices = self._connected_devices()
+        devices = [
+            device
+            for device in self._bluetooth.props.devices or []
+            if device.props.connected
+        ]
         count = len(devices)
 
         if count == 0:

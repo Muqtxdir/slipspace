@@ -20,16 +20,13 @@ from slipspace.components.bluetooth.bluetooth import Bluetooth
 class BluetoothRow(Adw.ActionRow):
     __gtype_name__ = "BluetoothRow"
 
-    icon_name = GObject.Property(type=str, default="")
+    show_icon = GObject.Property(type=bool, default=True)
     powered = GObject.Property(type=bool, default=False)
 
     def __init__(self, bluetooth: Bluetooth = None, **kwargs):
         super().__init__(**kwargs)
 
         self._bluetooth = bluetooth if bluetooth is not None else Bluetooth()
-        self._bluetooth.bind_property(
-            "icon-name", self, "icon-name", GObject.BindingFlags.SYNC_CREATE
-        )
         self._bluetooth.bind_property(
             "subtitle", self, "subtitle", GObject.BindingFlags.SYNC_CREATE
         )
@@ -41,4 +38,13 @@ class BluetoothRow(Adw.ActionRow):
             self,
             "powered",
             GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
+        )
+
+        self._bluetooth.connect("notify::icon-name", self._update_icon)
+        self.connect("notify::show-icon", self._update_icon)
+        self._update_icon()
+
+    def _update_icon(self, *_args) -> None:
+        self.props.icon_name = (
+            self._bluetooth.props.icon_name if self.props.show_icon else ""
         )

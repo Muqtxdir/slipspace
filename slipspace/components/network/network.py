@@ -94,39 +94,19 @@ class Network(GObject.Object):
         for signal in ("notify::icon-name", "notify::internet", "notify::state"):
             wired.connect(signal, self._on_changed)
 
-    def _has_device(self) -> bool:
-        return (
-            self._network.props.wifi is not None
-            or self._network.props.wired is not None
-        )
-
-    def _wifi_is_enabled(self) -> bool:
-        wifi = self._network.props.wifi
-
-        return wifi is not None and wifi.props.enabled
-
     def _icon(self) -> str:
-        primary = self._network.props.primary
+        match self._network.props.primary:
+            case AstalNetwork.Primary.WIRED:
+                device, fallback = self._network.props.wired, WIRED_ICON
+            case AstalNetwork.Primary.WIFI:
+                device, fallback = self._network.props.wifi, WIFI_ICON
+            case _:
+                return OFFLINE_ICON
 
-        if primary == AstalNetwork.Primary.WIRED:
-            wired = self._network.props.wired
+        if device is None or not device.props.icon_name:
+            return fallback
 
-            return (
-                wired.props.icon_name
-                if wired is not None and wired.props.icon_name
-                else WIRED_ICON
-            )
-
-        if primary == AstalNetwork.Primary.WIFI:
-            wifi = self._network.props.wifi
-
-            return (
-                wifi.props.icon_name
-                if wifi is not None and wifi.props.icon_name
-                else WIFI_ICON
-            )
-
-        return OFFLINE_ICON
+        return device.props.icon_name
 
     def _update_wifi(self) -> None:
         wifi = self._network.props.wifi
@@ -164,7 +144,9 @@ class Network(GObject.Object):
         self._update_wifi()
         self._update_wired()
 
-        if not self._has_device():
+        wifi = self._network.props.wifi
+
+        if wifi is None and self._network.props.wired is None:
             self.props.icon_name = OFFLINE_ICON
             self.props.available = False
             return
@@ -172,5 +154,5 @@ class Network(GObject.Object):
         self.props.icon_name = self._icon()
         self.props.available = (
             self._network.props.primary != AstalNetwork.Primary.UNKNOWN
-            or self._wifi_is_enabled()
+            or (wifi is not None and wifi.props.enabled)
         )

@@ -5,11 +5,6 @@
   <template class="WifiRow" parent="AdwActionRow">
     <property name="title" translatable="yes">Wifi</property>
     <property name="activatable-widget">wifi_switch</property>
-    <child type="prefix">
-      <object class="GtkImage">
-        <property name="icon-name" bind-source="WifiRow" bind-property="icon-name" bind-flags="sync-create"/>
-      </object>
-    </child>
     <child type="suffix">
       <object class="GtkSwitch" id="wifi_switch">
         <property name="valign">center</property>

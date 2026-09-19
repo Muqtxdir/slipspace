@@ -23,7 +23,7 @@ from slipspace.components.powerprofiles.powerprofiles import (
 class PowerProfilesRow(Adw.ComboRow):
     __gtype_name__ = "PowerProfilesRow"
 
-    icon_name = GObject.Property(type=str, default="")
+    show_icon = GObject.Property(type=bool, default=True)
 
     def __init__(self, power_profiles: PowerProfiles = None, **kwargs):
         super().__init__(**kwargs)
@@ -38,9 +38,10 @@ class PowerProfilesRow(Adw.ComboRow):
 
         self.set_model(model)
 
-        self._power.bind_property(
-            "icon-name", self, "icon-name", GObject.BindingFlags.SYNC_CREATE
-        )
+        self._power.connect("notify::icon-name", self._update_icon)
+        self.connect("notify::show-icon", self._update_icon)
+        self._update_icon()
+
         self._power.bind_property(
             "has-profiles", self, "visible", GObject.BindingFlags.SYNC_CREATE
         )
@@ -54,6 +55,11 @@ class PowerProfilesRow(Adw.ComboRow):
                 self._profile_to_index,
                 self._index_to_profile,
             )
+
+    def _update_icon(self, *_args) -> None:
+        self.props.icon_name = (
+            self._power.props.icon_name if self.props.show_icon else ""
+        )
 
     def _profile_to_index(self, _binding, profile):
         if profile in self._profiles:
