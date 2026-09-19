@@ -4,8 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from slipspace.components.appearance.accents_row import AccentsRow
 from slipspace.components.appearance.appearance import Appearance
-from slipspace.components.appearance.style_row import StyleRow
+from slipspace.components.appearance.appearance_row import AppearanceRow
 
-__all__ = ["AccentsRow", "Appearance", "StyleRow"]
+__all__ = ["Appearance", "AppearanceRow"]

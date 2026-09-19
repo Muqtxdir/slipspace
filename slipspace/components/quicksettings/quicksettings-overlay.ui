@@ -6,45 +6,13 @@
     <property name="child">
       <object class="AdwOverlaySplitView" id="split_view">
         <property name="sidebar-position">end</property>
-        <property name="max-sidebar-width">400</property>
-        <property name="sidebar-width-unit">px</property>
-        <property name="sidebar-width-fraction">0.3</property>
+        <property name="max-sidebar-width">350</property>
         <property name="collapsed">True</property>
         <property name="show-sidebar">False</property>
         <property name="sidebar">
           <object class="AdwToolbarView">
-            <child type="top">
-              <object class="AdwHeaderBar">
-                <property name="show-title">False</property>
-                <property name="show-start-title-buttons">False</property>
-                <property name="show-end-title-buttons">False</property>
-                <child type="start">
-                  <object class="GtkButton">
-                    <property name="tooltip-text" translatable="yes">Back</property>
-                    <property name="icon-name">go-previous-symbolic</property>
-                    <signal name="clicked" handler="_on_dismiss_clicked"/>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
-                <child type="end">
-                  <object class="QuickSettingsButton">
-                    <property name="can-target">False</property>
-                    <property name="can-focus">False</property>
-                  </object>
-                </child>
-              </object>
-            </child>
             <property name="content">
               <object class="AdwPreferencesPage">
-                <child>
-                  <object class="AdwPreferencesGroup">
-                    <child>
-                      <object class="StyleRow"/>
-                    </child>
-                  </object>
-                </child>
                 <child>
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Connectivity</property>

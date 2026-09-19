@@ -11,21 +11,15 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, GObject, Gtk
 
-from slipspace.components.appearance import StyleRow
 from slipspace.components.bluetooth import BluetoothRow
 from slipspace.components.brightness import BrightnessRow
 from slipspace.components.microphone import MicrophoneRow
 from slipspace.components.network import EthernetRow, WifiRow
 from slipspace.components.powerprofiles import PowerProfilesRow
-from slipspace.components.quicksettings.quicksettings_button import (
-    QuickSettingsButton,
-)
 from slipspace.components.speaker import SpeakerRow
 
 GObject.type_ensure(BluetoothRow)
-GObject.type_ensure(QuickSettingsButton)
 GObject.type_ensure(BrightnessRow)
-GObject.type_ensure(StyleRow)
 GObject.type_ensure(MicrophoneRow)
 GObject.type_ensure(EthernetRow)
 GObject.type_ensure(PowerProfilesRow)
@@ -65,7 +59,3 @@ class QuickSettingsOverlay(Adw.Bin):
     @content.setter
     def content(self, widget):
         self.split_view.set_content(widget)
-
-    @Gtk.Template.Callback()
-    def _on_dismiss_clicked(self, _button):
-        self.props.show_settings = False

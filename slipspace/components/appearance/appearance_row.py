@@ -1,4 +1,4 @@
-# accents_row.py
+# appearance_row.py
 #
 # Copyright 2026 Muqtadir
 #
@@ -15,18 +15,18 @@ from gi.repository import Adw, GDesktopEnums, GObject, Gtk
 from slipspace.components.appearance.appearance import Appearance
 from slipspace.components.appearance.enums import accent_class, accent_label
 
-SWATCH_CSS_CLASSES = ["selection-mode", "accent-swatch"]
-
 
 @Gtk.Template(
-    resource_path="/com/muqtxdir/slipspace/components/appearance/accents-row.ui"
+    resource_path="/com/muqtxdir/slipspace/components/appearance/appearance-row.ui"
 )
-class AccentsRow(Adw.ExpanderRow):
-    __gtype_name__ = "AccentsRow"
+class AppearanceRow(Adw.PreferencesRow):
+    __gtype_name__ = "AppearanceRow"
 
     accent = GObject.Property(type=int, default=int(GDesktopEnums.AccentColor.BLUE))
 
-    _swatches: Gtk.Box = Gtk.Template.Child("swatches")
+    _default_tile: Gtk.ToggleButton = Gtk.Template.Child("default_tile")
+    _dark_tile: Gtk.ToggleButton = Gtk.Template.Child("dark_tile")
+    _swatches: Adw.WrapBox = Gtk.Template.Child("swatches")
 
     def __init__(self, appearance: Appearance = None, **kwargs):
         super().__init__(**kwargs)
@@ -37,13 +37,21 @@ class AccentsRow(Adw.ExpanderRow):
         self._build_swatches()
 
         self._appearance.bind_property(
-            "has-accent", self, "visible", GObject.BindingFlags.SYNC_CREATE
+            "available", self, "visible", GObject.BindingFlags.SYNC_CREATE
+        )
+        self._appearance.bind_property(
+            "has-accent", self._swatches, "visible", GObject.BindingFlags.SYNC_CREATE
         )
         self._appearance.bind_property(
             "accent", self, "accent", GObject.BindingFlags.SYNC_CREATE
         )
 
+        self._appearance.connect("notify::color-scheme", self._on_color_scheme_changed)
+        self._default_tile.connect("toggled", self._on_tile_toggled)
+        self._dark_tile.connect("toggled", self._on_tile_toggled)
+
         self.connect("notify::accent", self._on_accent_changed)
+        self._update_tiles()
         self._select_swatch()
 
     def _build_swatches(self) -> None:
@@ -51,8 +59,9 @@ class AccentsRow(Adw.ExpanderRow):
 
         for accent in GDesktopEnums.AccentColor:
             button = Gtk.CheckButton(tooltip_text=accent_label(accent))
-            for css_class in SWATCH_CSS_CLASSES + [accent_class(accent)]:
-                button.add_css_class(css_class)
+            button.add_css_class("selection-mode")
+            button.add_css_class("accent-swatch")
+            button.add_css_class(accent_class(accent))
 
             if group is None:
                 group = button
@@ -64,6 +73,27 @@ class AccentsRow(Adw.ExpanderRow):
             self._buttons[accent] = button
             self._swatches.append(button)
 
+    def _update_tiles(self) -> None:
+        match self._appearance.props.color_scheme:
+            case GDesktopEnums.ColorScheme.DEFAULT:
+                self._default_tile.props.active = True
+            case GDesktopEnums.ColorScheme.PREFER_DARK:
+                self._dark_tile.props.active = True
+            case _:
+                self._default_tile.props.active = False
+                self._dark_tile.props.active = False
+
+    def _on_color_scheme_changed(self, _object, _pspec) -> None:
+        self._update_tiles()
+
+    def _on_tile_toggled(self, _button: Gtk.ToggleButton) -> None:
+        if self._default_tile.props.active:
+            self._appearance.props.color_scheme = int(GDesktopEnums.ColorScheme.DEFAULT)
+        elif self._dark_tile.props.active:
+            self._appearance.props.color_scheme = int(
+                GDesktopEnums.ColorScheme.PREFER_DARK
+            )
+
     def _select_swatch(self) -> None:
         self._buttons[GDesktopEnums.AccentColor(self.props.accent)].set_active(True)
 
@@ -73,7 +103,3 @@ class AccentsRow(Adw.ExpanderRow):
     def _on_swatch_toggled(self, button: Gtk.CheckButton, accent) -> None:
         if button.get_active() and self._appearance.props.accent != accent:
             self._appearance.props.accent = accent
-
-    @Gtk.Template.Callback()
-    def _get_accent_name(self, _object, accent: int) -> str:
-        return accent_label(GDesktopEnums.AccentColor(accent))
