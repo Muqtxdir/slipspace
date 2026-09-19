@@ -37,7 +37,7 @@ class Battery(GObject.Object):
             settings = Gio.Settings.new(BATTERY_SCHEMA_ID)
 
         settings.bind(
-            "show-percentage", self, "show-percentage", Gio.SettingsBindFlags.GET
+            "show-percentage", self, "show-percentage", Gio.SettingsBindFlags.DEFAULT
         )
         self.connect("notify::show-percentage", self._on_changed)
 

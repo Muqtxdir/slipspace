@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="BatteryPercentageRow" parent="AdwActionRow">
+    <property name="title" translatable="yes">Show Battery Percentage</property>
+    <property name="activatable-widget">percentage_switch</property>
+    <child type="suffix">
+      <object class="GtkSwitch" id="percentage_switch">
+        <property name="valign">center</property>
+        <property name="active" bind-source="BatteryPercentageRow" bind-property="show-percentage" bind-flags="sync-create|bidirectional"/>
+      </object>
+    </child>
+  </template>
+</interface>

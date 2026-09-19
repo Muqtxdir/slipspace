@@ -6,5 +6,6 @@
 
 from slipspace.components.battery.battery import Battery
 from slipspace.components.battery.battery_icon import BatteryIcon
+from slipspace.components.battery.battery_percentage_row import BatteryPercentageRow
 
-__all__ = ["Battery", "BatteryIcon"]
+__all__ = ["Battery", "BatteryIcon", "BatteryPercentageRow"]

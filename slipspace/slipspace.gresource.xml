@@ -5,6 +5,7 @@
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
     <file preprocess="xml-stripblanks">components/battery/battery-icon.ui</file>
+    <file preprocess="xml-stripblanks">components/battery/battery-percentage-row.ui</file>
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-icon.ui</file>
     <file preprocess="xml-stripblanks">components/bluetooth/bluetooth-row.ui</file>
     <file preprocess="xml-stripblanks">components/brightness/brightness-row.ui</file>
