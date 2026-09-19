@@ -12,9 +12,14 @@
     <file preprocess="xml-stripblanks">components/appearance/appearance-row.ui</file>
     <file preprocess="xml-stripblanks">components/datetime/datetime-label.ui</file>
     <file preprocess="xml-stripblanks">components/menu/menu-overlay.ui</file>
+    <file preprocess="xml-stripblanks">components/panels/top-panel.ui</file>
     <file preprocess="xml-stripblanks">components/speaker/speaker-icon.ui</file>
     <file preprocess="xml-stripblanks">components/speaker/speaker-row.ui</file>
     <file preprocess="xml-stripblanks">components/quicksettings/quicksettings-overlay.ui</file>
+    <file preprocess="xml-stripblanks">components/datetime/time-format-row.ui</file>
+    <file preprocess="xml-stripblanks">components/datetime/timezone-page.ui</file>
+    <file preprocess="xml-stripblanks">components/datetime/timezone-item-row.ui</file>
+    <file preprocess="xml-stripblanks">components/datetime/timezone-row.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-icon.ui</file>
     <file preprocess="xml-stripblanks">components/powerprofiles/powerprofiles-row.ui</file>
     <file preprocess="xml-stripblanks">components/quicksettings/quicksettings-button.ui</file>

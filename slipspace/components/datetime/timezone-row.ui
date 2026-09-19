@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="TimezoneRow" parent="AdwActionRow">
+    <property name="title" translatable="yes">Time Zone</property>
+    <property name="activatable">True</property>
+    <signal name="activated" handler="_on_activated"/>
+    <child type="suffix">
+      <object class="GtkLabel">
+        <property name="valign">center</property>
+        <property name="label" bind-source="TimezoneRow" bind-property="timezone" bind-flags="sync-create"/>
+        <style>
+          <class name="dim-label"/>
+        </style>
+      </object>
+    </child>
+    <child type="suffix">
+      <object class="GtkImage">
+        <property name="accessible-role">presentation</property>
+        <property name="valign">center</property>
+        <property name="icon-name">go-next-symbolic</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

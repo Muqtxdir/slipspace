@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="TimeFormatRow" parent="AdwActionRow">
+    <property name="title" translatable="yes">Time Format</property>
+    <child type="suffix">
+      <object class="AdwToggleGroup">
+        <property name="valign">center</property>
+        <property name="active-name" bind-source="TimeFormatRow" bind-property="time-format" bind-flags="sync-create|bidirectional"/>
+        <child>
+          <object class="AdwToggle">
+            <property name="name">24h</property>
+            <property name="label" translatable="yes">24-hour</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwToggle">
+            <property name="name">12h</property>
+            <property name="label" translatable="yes">AM / PM</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

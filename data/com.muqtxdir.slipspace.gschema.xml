@@ -15,6 +15,11 @@
 				format.
 			</description>
     </key>
+    <key name="timezone" type="s">
+      <default>''</default>
+      <summary>The last known system timezone</summary>
+      <description>Current system timezone set and used by the application.</description>
+    </key>
   </schema>
   <schema id="com.muqtxdir.slipspace.battery" path="/com/muqtxdir/slipspace/battery/">
     <key name="show-percentage" type="b">
